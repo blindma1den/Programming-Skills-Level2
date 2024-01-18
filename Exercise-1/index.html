@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 1 LVL2 | BIG SIX TOURNAMENT</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <section class="main">
+      <div class="header-container">
+        <h1>Welcome to the Big Six Tournament</h1>
+        <p>Click on generate tournament and cross your fingers!</p>
+        <p>You can check all the matches results in browser console</p>
+        <button id="generate-button">GENERATE TOURNAMENT</button>
+      </div>
+    </section>
+    <section id="champion" class="champion" style="display: none">
+      <div id="champion-container" class="champion-container">
+        <h2 id="champion-name"></h2>
+        <img id="champion-img" src="" alt="Champion" />
+      </div>
+    </section>
+    <section
+      id="results-container"
+      class="results-container"
+      style="display: none"
+    >
+      <h3>STANDINGS</h3>
+      <table class="standings">
+        <thead>
+          <tr>
+            <th>Pos</th>
+            <th>Team</th>
+            <th>Points</th>
+            <th>Matches Played</th>
+          </tr>
+        </thead>
+        <tbody id="standings"></tbody>
+      </table>
+    </section>
+  </body>
+</html>
