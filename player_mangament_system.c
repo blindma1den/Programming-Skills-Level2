@@ -31,23 +31,32 @@ int main(){
     lista * players = malloc(sizeof(lista));
     char * ptrname;
     char * ptrlast_name;
+    char * ptrposition;
     int goals;
     int speed;
     int assissts;
     int passing_accuracy;
     int defensive_involvemnt;
     int jersey_number;
+    int age;
+    float height;
+
     while(menu==1){
-        printf("Manchester United FC Player Management System:\n1-Add a new player\n2-View all the player and their characteristics\n3-Modify a player characteristic\n4-Remove a player\n5-Compare two players\n6-Display the characteristics of one player\7-Exit\n");
+        printf("Manchester United FC Player Management System:\n1-Add a new player\n2-View all the player and their characteristics\n3-Modify a player characteristic\n4-Remove a player\n5-Compare two players\n6-Display the characteristics of one player\n7-Exit\n");
         scanf("%i",&menu_option);
         switch(menu_option){
             case 1:
                 ptrname = malloc(sizeof(char));
                 ptrlast_name = malloc(sizeof(char));
+                ptrposition = malloc(sizeof(char));
                 printf("Adding a new player\nPlease write the player's name:");
                 scanf("%s",ptrname);
-                printf("Now enter the last name:");
+                printf("Now enter the last name:");                
                 scanf("%s",ptrlast_name);
+                printf("Enter the age:");
+                scanf("%i",&age);
+                printf("Enter the player height");
+                scanf("%f",&height);
                 printf("Enter the number of goals:");
                 scanf("%i",&goals);
                 printf("Enter the speed:");
@@ -58,17 +67,21 @@ int main(){
                 scanf("%i",&passing_accuracy);
                 printf("Enter the defensive involvement:");
                 scanf("%i",&defensive_involvemnt);
+                printf("Enter the position of the player");
+                scanf("%s",ptrposition);
                 printf("Enter the jerset number:");
                 scanf("%i",&jersey_number);
                 printf("\n\nPlayer added successfuly\n\n");
-                add_final(&players,ptrname,ptrlast_name,goals,speed,assissts,passing_accuracy,defensive_involvemnt,jersey_number);
-                mostrar_l(&players);                
+                add_final(&players,ptrname,ptrlast_name,goals,speed,assissts,passing_accuracy,defensive_involvemnt,jersey_number, ptrposition, age, height);
+                free(ptrname);
+                free(ptrlast_name);
+                free(ptrposition);
                 break;
             case 2:
                 if(0 == vacia_l(&players)){
                     printf("There are no players in the system, please add a player\n\n");
                 }else{
-
+                    mostrar_l(&players); 
                 }
                 break;
             case 3:
@@ -78,6 +91,9 @@ int main(){
             case 5:
                 break;
             case 6:
+                break;
+            case 7:
+                menu = 0;
                 break;
             default:
                 printf("Invalid option\n\n");

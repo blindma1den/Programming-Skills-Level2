@@ -2,7 +2,7 @@
 #define __LISTA_H__
 #include "lista.c"
 //Inserta un nodo nuevo al final de la lista
-void add_final(lista ** l, char * name, char * last_name,int goals, int speed,int assissts, int passing_accuracy,int defensive_involvemnt , int jersey_number);
+void add_final(lista ** l, char * name, char * last_name,int goals, int speed,int assissts, int passing_accuracy,int defensive_involvemnt , int jersey_number, char * position, int age , float height);
 
 //Para saber si la lista es vacia
 int vacia_l(lista **l);
@@ -17,7 +17,7 @@ void eliminar_elem(lista**l, int pos);
 void eliminar_l(lista**l);
 
 //Modificando el valor de un nodo
-void modificar_elem(lista ** l, int elem, int pos , int stat_index);
+void modificar_elem(lista ** l, int elem, char * position ,int jersey_number, int stat_index);
 
 
 
