@@ -22,5 +22,6 @@ fun main() {
             }
         }
     }
-    println("Premier League table: ${teams.sortedBy { (it.points) }.reversed().map { "\n${it.name} ${it.points}" }}")
+    println("Premier League table:")
+    teams.sortedBy { (it.points) }.reversed().forEach { println( "${it.name} ${it.points}") }
 }
