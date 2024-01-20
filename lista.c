@@ -13,9 +13,10 @@ int mitad (nodo * n);
 nodo * merge(nodo** izquierdo, nodo**derecho);
 
 //Inserta un nodo nuevo al final de la lista
-void add_final(lista ** l, char * name, int goals, int speed,int assissts, int passing_accuracy,int defensive_involvemnt , int jersey_number){
+void add_final(lista ** l, char * name,char * last_name, int goals, int speed,int assissts, int passing_accuracy,int defensive_involvemnt , int jersey_number){
     nodo * nuevo = malloc(sizeof(nodo));
     strcpy(nuevo->name, name);
+    strcpy(nuevo->last_name,last_name);
     nuevo->stats_values[0] = goals;
     nuevo->stats_values[1]=speed;
     nuevo->stats_values[2]=assissts;
@@ -53,6 +54,7 @@ void mostrar_l(lista** l){
     nodo * i = (*l)->prim;
     for(int j = 0; j < (*l)->longitud;j++){
         printf("%s \n",i->name);
+        printf("%s \n",i->last_name);
         printf("%i \n",i->stats_values[0]);
         printf("%i \n",i->stats_values[1]);
         printf("%i \n",i->stats_values[2]);

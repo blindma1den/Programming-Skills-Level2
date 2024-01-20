@@ -3,7 +3,8 @@
 
 typedef struct nodo {
     struct nodo * prox;
-    char name[40];
+    char name[20];
+    char last_name[20];
     // goals, speed, assissts, passing accuracy, defensive involvemnt , jersey number   
     int stats_values[6];
 }nodo;
