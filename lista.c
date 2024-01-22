@@ -64,12 +64,13 @@ void mostrar_l(lista** l){
         printf("Assissts:%i \n",i->stats_values[2]);
         printf("Passing accuracy:%i \n",i->stats_values[3]);
         printf("Defensive involvement:%i \n",i->stats_values[4]);
-        printf("Jersey number%i \n",i->stats_values[5]);
+        printf("Jersey number:%i \n",i->stats_values[5]);
         printf("Age:%i \n",i->stats_values[6]);
         printf("Height:%.2f \n",i->height);
         printf("\n\n");
         i = i->prox;
     }
+    i = NULL;
 }
 
 //Imprime un nodo de la lista
@@ -86,7 +87,7 @@ void mostrar_nodo(lista**l, int jersey_n){
                 printf("Assissts:%i \n",aux->stats_values[2]);
                 printf("Passing accuracy:%i \n",aux->stats_values[3]);
                 printf("Defensive involvement:%i \n",aux->stats_values[4]);
-                printf("Jersey number%i \n",aux->stats_values[5]);
+                printf("Jersey number:%i \n",aux->stats_values[5]);
                 printf("Age:%i \n",aux->stats_values[6]);
                 printf("Height:%.2f \n",aux->height);
                 printf("\n\n");
@@ -94,7 +95,7 @@ void mostrar_nodo(lista**l, int jersey_n){
             aux = aux->prox;
         }    
     }
-
+    aux = NULL;
 }
 
 //Elimina la lista
@@ -107,37 +108,45 @@ void eliminar_l(lista**l){
     }
     (*l)->longitud = 0;
     (*l)->prim = NULL;
+    i = NULL;
 }
 
 //elimina un elemento
-void eliminar_elem(lista** l,int pos){
-    if(pos < (*l)->longitud){
-        nodo * aux2;
-        if(pos == 1){
-            aux2 = (*l)->prim;
-            (*l)->prim = (*l)->prim->prox;
-        }else{
-            int cant = 1;
-            nodo * aux = (*l)->prim;
-            while(cant < pos-1){
-                aux = aux->prox;
-                cant++;
+void eliminar_elem(lista** l,char * last_name){
+    nodo * aux = (*l)->prim;
+    nodo * aux2;
+    if(0 == strcmp(aux->last_name, last_name)){
+        (*l)->prim= aux->prox;
+        free(aux);
+    }else{
+        for(int i = 1; i < (*l)->longitud;i++){
+            if(0 == strcmp(aux->prox->last_name,last_name)){
+                aux2 = aux;
+                aux->prox = aux2->prox;
+                free(aux2);
+                break;
             }
-            aux2 = aux->prox;
-            aux->prox = aux->prox->prox;
         }
-        free(aux2);
-        (*l)->longitud = (*l)->longitud - 1;
     }
+    aux=NULL;
+    aux2=NULL;
+    (*l)->longitud = (*l)->longitud - 1;
 }
 
 //Modifica el valor de un nodo ya creado
-void modificar_elem(lista ** l, int elem, char * position ,int jersey_number, int stat_index){
+void modificar_elem(lista ** l, int elem, char * position ,char * last_name, int stat_index, float height){
     nodo * p = (*l)->prim;
-    for( int i = 1; i < (*l)->longitud;i++){
-        if(p->stats_values[5]==jersey_number){
+    int flag = 0;
+    for( int i = 1; i <= (*l)->longitud;i++){
+
+        if(0 == strcmp(p->last_name,last_name)){
+            flag = 1;
             if(position==NULL){
-                p->stats_values[stat_index]=elem;
+                if(stat_index==-1){
+                    p->height=height;
+                }else{
+                    p->stats_values[stat_index]=elem;
+                }                
             }else{
                 strcpy(p->position,position);
             }
@@ -145,6 +154,10 @@ void modificar_elem(lista ** l, int elem, char * position ,int jersey_number, in
         }
         p = p->prox;
     }
+    if(flag==0){
+        printf("Error,there is not a player with that last name\n\n");
+    }
+    p = NULL;
 }
 
 #endif

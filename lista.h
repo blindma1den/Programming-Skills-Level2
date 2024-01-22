@@ -11,13 +11,13 @@ int vacia_l(lista **l);
 void mostrar_l(lista** l);
 
 //Elimina un elemento dado el indice
-void eliminar_elem(lista**l, int pos);
+void eliminar_elem(lista**l, char * last_name);
 
 //Elimina la lista
 void eliminar_l(lista**l);
 
 //Modificando el valor de un nodo
-void modificar_elem(lista ** l, int elem, char * position ,int jersey_number, int stat_index);
+void modificar_elem(lista ** l, int elem, char * position ,char * last_name, int stat_index,float height);
 
 
 
