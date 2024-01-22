@@ -9,9 +9,6 @@ typedef struct lista{
     struct nodo * prim;
 }lista;
 
-int mitad (nodo * n);
-nodo * merge(nodo** izquierdo, nodo**derecho);
-
 //Inserta un nodo nuevo al final de la lista
 void add_final(lista ** l, char * name, char * last_name,int goals, int speed,int assissts, int passing_accuracy,int defensive_involvemnt , int jersey_number, char * position, int age , float height){
     nodo * nuevo = malloc(sizeof(nodo));
@@ -74,11 +71,13 @@ void mostrar_l(lista** l){
 }
 
 //Imprime un nodo de la lista
-void mostrar_nodo(lista**l, int jersey_n){
+void mostrar_nodo(lista**l, char * last_name){
     nodo * aux = (*l)->prim;
+    int flag = 0;
     if((*l)->longitud>0){
         for(int i = 1; i < (*l)->longitud;i++){
-            if((aux->stats_values[5]==jersey_n)){
+            if(0 == strcmp(aux->last_name,last_name)){
+                flag = 1;
                 printf("Name:%s \n",aux->name);
                 printf("Last name:%s \n",aux->last_name);
                 printf("Position:%s \n",aux->position);
@@ -91,9 +90,13 @@ void mostrar_nodo(lista**l, int jersey_n){
                 printf("Age:%i \n",aux->stats_values[6]);
                 printf("Height:%.2f \n",aux->height);
                 printf("\n\n");
+                break;
             }
             aux = aux->prox;
         }    
+    }
+    if(flag == 0){
+        printf("There is not a player with that last name\n\n");
     }
     aux = NULL;
 }
@@ -115,17 +118,22 @@ void eliminar_l(lista**l){
 void eliminar_elem(lista** l,char * last_name){
     nodo * aux = (*l)->prim;
     nodo * aux2;
+    int flag = 0;
     if(0 == strcmp(aux->last_name, last_name)){
         (*l)->prim= aux->prox;
         free(aux);
     }else{
         for(int i = 1; i < (*l)->longitud;i++){
             if(0 == strcmp(aux->prox->last_name,last_name)){
-                aux2 = aux;
+                aux2 = aux->prox;
                 aux->prox = aux2->prox;
                 free(aux2);
+                flag = 1;
                 break;
             }
+        }
+        if(flag == 0){
+            printf("There is not a player with that last name\n\n");
         }
     }
     aux=NULL;
@@ -159,5 +167,45 @@ void modificar_elem(lista ** l, int elem, char * position ,char * last_name, int
     }
     p = NULL;
 }
+
+void comparar_elems( lista ** l, int jersey_n1, int jersey_n2){
+    nodo * aux = (*l)->prim;
+    nodo * p1 = NULL;
+    nodo * p2 = NULL;
+    int flag = 0;
+    while(flag == 0){
+        if(aux->stats_values[5]==jersey_n1){
+            p1 = aux;
+        }
+        if(aux->stats_values[5]==jersey_n2){
+            p2 = aux;
+        }
+        if(p1 != NULL && p2 != NULL){
+            flag =1;
+        }else{
+            aux = aux->prox;
+        }
+        if(aux == NULL){
+            break;
+        }
+    }
+    if(flag == 0){
+        printf("There is an error with the jersey numbers\n\n");
+    }else{
+        printf("Names : %s     %s\n",p1->name, p2->name);
+        printf("Last names: %s     %s\n",p1->last_name,p2->last_name);
+        printf("Height : %.2f    %.2f\n",p1->height,p2->height);
+        printf("Positions: %s     %s\n",p1->position,p2->position);
+        printf("Goals : %i     %i\n",p1->stats_values[0],p2->stats_values[0]);
+        printf("Speed : %i     %i\n",p1->stats_values[1],p2->stats_values[1]);
+        printf("Assissts: %i     %i\n",p1->stats_values[2],p2->stats_values[2]);
+        printf("Passing accuracy: %i    %i\n",p1->stats_values[3],p2->stats_values[3]);
+        printf("Defensive involvemnt: %i   %i\n",p1->stats_values[4],p2->stats_values[4]);
+        printf("Jersey number: %i    %i\n",p1->stats_values[5],p2->stats_values[5]);
+        printf("Age : %i   %i\n",p1->stats_values[6],p2->stats_values[6]);
+    }
+}
+
+
 
 #endif
