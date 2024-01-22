@@ -52,7 +52,7 @@ const highScore = () => {
 	let res = '';
 	for (let r in results) {
 		if (results[r] >= cont) {
-			cont = results[r];
+-			cont = results[r];
 			res = `The winner is ${r} with ${results[r]} pts.`;
 		} else {
 			continue;
