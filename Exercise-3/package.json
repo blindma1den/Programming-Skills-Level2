@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "ts-node dist/index.js",
     "dev": "nodemon --watch src  --exec ts-node -r tsconfig-paths/register src/server.ts",
