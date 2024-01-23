@@ -7,7 +7,7 @@
   "scripts": {
     "start": "ts-node dist/index.js",
     "dev": "nodemon --watch src  --exec ts-node -r tsconfig-paths/register src/server.ts",
-    "build": "npx tsc -p",
+    "build": "npx tsc --project .",
     "eslint:fix": "eslint --fix",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write 'src/**/*.ts'"
