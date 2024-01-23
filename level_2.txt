@@ -63,7 +63,7 @@ Display the statistical and physical attributes of each player for a comprehensi
 
 4. Old Trafford Stadium
 
-The executive management of Manchester United FC aims to implement a ticket sales system for the team's matches at Old Trafford Stadium. Develop a ticket purchase system with the following features:
+The executive management of Manchester Unite--d FC aims to implement a ticket sales system for the team's matches at Old Trafford Stadium. Develop a ticket purchase system with the following features:
 
 Membership Discount:
 Users with a Manchester United membership card receive a 15% discount on their total purchase.
