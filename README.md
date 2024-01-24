@@ -11,7 +11,11 @@ PORT=
 
 (PORT es opcional)
 
-Si hago tiempo lo subo a un servidor.
+Para probar los endpoints de la API, ingresar en: 
+https://studio.apollographql.com/sandbox/explorer
+Y donde dice http://localhost/4000 cambiar por:
+https://api-crud-players.onrender.com/graphql
 
+Ahi se pueden realizar las query y mutations que solicitaba el enunciado del ejercicio
 
 This repository contains a series of entry-level exercises that can be solved in any programming language. The purpose of these exercises is to develop your programming logic. This repository is the number #3 in a series of more exercises to improve your programming skills.
