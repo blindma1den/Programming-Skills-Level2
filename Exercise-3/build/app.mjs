@@ -45,7 +45,8 @@ const apolloStart = () =>
     const server = new ApolloServer({
       typeDefs: [playerTypeDefs],
       resolvers: [playerResolvers],
-      introspection: true
+      introspection: true,
+      playground: true
     });
     yield server.start();
     app.use(cors());
