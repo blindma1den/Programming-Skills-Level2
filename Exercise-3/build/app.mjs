@@ -44,7 +44,8 @@ const apolloStart = () =>
   __awaiter(void 0, void 0, void 0, function* () {
     const server = new ApolloServer({
       typeDefs: [playerTypeDefs],
-      resolvers: [playerResolvers]
+      resolvers: [playerResolvers],
+      introspection: true
     });
     yield server.start();
     app.use(cors());
