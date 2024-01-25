@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Andriy Lunin",
+        "position": "Goalkeeper",
+        "price": 30000000,
+        "salary": 10000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Dominic Livakovic",
+        "position": "Goalkeeper",
+        "price": 15000000,
+        "salary": 9000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Rui Patricio",
+        "position": "Goalkeeper",
+        "price": 10000000,
+        "salary": 7000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Yassine Bounou",
+        "position": "Goalkeeper",
+        "price": 14000000,
+        "salary": 9000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Enzo Fernández",
+        "position": "Midfielder",
+        "price": 35000000,
+        "salary": 15000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Jamal Musiala",
+        "position": "Midfielder",
+        "price": 30000000,
+        "salary": 10000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Arda Guler",
+        "position": "Midfielder",
+        "price": 18000000,
+        "salary": 9000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Achraf Hakimi",
+        "position": "Right Side",
+        "price": 20000000,
+        "salary": 15000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Jeremie Frimpong",
+        "position": "Right Side",
+        "price": 12000000,
+        "salary": 8000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Ronald Araujo",
+        "position": "Right Side",
+        "price": 15000000,
+        "salary": 10000000,
+        "performance": "Good"
+    }
+]
