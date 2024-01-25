@@ -1,0 +1,212 @@
+[
+    {
+        "name": "André Onana",
+        "position": "Goalkeeper",
+        "price": 25000000,
+        "salary": 15000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Altay Bayindir",
+        "position": "Goalkeeper",
+        "price": 5000000,
+        "salary": 5000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Tom Heaton",
+        "position": "Goalkeeper",
+        "price": 5000000,
+        "salary": 2000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Victor Lindelof",
+        "position": "Defender",
+        "price": 10000000,
+        "salary": 7000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Harry Maguire",
+        "position": "Defender",
+        "price": 15000000,
+        "salary": 10000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Raphael Varane",
+        "position": "Defender",
+        "price": 15000000,
+        "salary": 10000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Lisandro Martínez",
+        "position": "Defender",
+        "price": 15000000,
+        "salary": 8000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Jonny Evans",
+        "position": "Defender",
+        "price": 7000000,
+        "salary": 4000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Willy Kambwala",
+        "position": "Defender",
+        "price": 4000000,
+        "salary": 1000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Rhys Bennett",
+        "position": "Defender",
+        "price": 4000000,
+        "salary": 2000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Diogo Dalot",
+        "position": "Right Side",
+        "price": 40000000,
+        "salary": 10000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Aaron Wan Bissaka",
+        "position": "Right Side",
+        "price": 30000000,
+        "salary": 9000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Luke Shaw",
+        "position": "Left Side",
+        "price": 40000000,
+        "salary": 16000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Sergio Reguilón",
+        "position": "Left Side",
+        "price": 20000000,
+        "salary": 8000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Tyrell Malacia",
+        "position": "Left Side",
+        "price": 16000000,
+        "salary": 7000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Sofyan Amrabat",
+        "position": "Midfielder",
+        "price": 25000000,
+        "salary": 9000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Mason Mount",
+        "position": "Midfielder",
+        "price": 25000000,
+        "salary": 12000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Carlos Casemiro",
+        "position": "Midfielder",
+        "price": 25000000,
+        "salary": 15000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Bruno Fernandes",
+        "position": "Midfielder",
+        "price": 50000000,
+        "salary": 11000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Christian Eriksen",
+        "position": "Midfielder",
+        "price": 25000000,
+        "salary": 8000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Scott McTominay",
+        "position": "Midfielder",
+        "price": 40000000,
+        "salary": 8000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Hannibal Mejbri",
+        "position": "Midfielder",
+        "price": 12000000,
+        "salary": 2000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Kobbie Mainoo",
+        "position": "Midfielder",
+        "price": 12000000,
+        "salary": 2000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Daniel Gore",
+        "position": "Midfielder",
+        "price": 9000000,
+        "salary": 2000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Alejandro Garnacho",
+        "position": "Striker",
+        "price": 12000000,
+        "salary": 10000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Rasmus Hojlund",
+        "position": "Striker",
+        "price": 20000000,
+        "salary": 7000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Marcus Rashford",
+        "position": "Striker",
+        "price": 25000000,
+        "salary": 10000000,
+        "performance": "Good"
+    },
+    {
+        "name": "Antony",
+        "position": "Striker",
+        "price": 25000000,
+        "salary": 10000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Anthony Martial",
+        "position": "Striker",
+        "price": 18000000,
+        "salary": 4000000,
+        "performance": "Normal"
+    },
+    {
+        "name": "Facundo Pellistri",
+        "position": "Striker",
+        "price": 18000000,
+        "salary": 6000000,
+        "performance": "Good"
+    }
+]

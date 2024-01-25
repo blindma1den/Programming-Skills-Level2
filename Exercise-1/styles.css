@@ -1,0 +1,63 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+}
+.header-container,
+.results-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+h1,
+h3 {
+  text-align: center;
+  color: #333;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.standings {
+  margin: 20px auto;
+}
+
+.standings th,
+.standings td {
+  border: 2px solid #1b1b1b;
+  padding: 8px;
+  text-align: left;
+}
+
+.standings th {
+  background-color: #45a049;
+  color: white;
+}
+.champion-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#champion-img {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+#champion-name {
+  color: red;
+  font-size: 48px;
+  text-align: center;
+}

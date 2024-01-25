@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 4 LVL 2 | OLD TRAFFORD STADIUM</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <section id="form-container" class="form-container">
+      <h1>WELCOME TO OLD TRAFFORD</h1>
+
+      <form class="form">
+        <h2>LOGIN FORM</h2>
+        <input type="text" id="username" placeholder="Enter your username" />
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+        />
+        <input type="submit" id="login-button" value="Login" />
+      </form>
+    </section>
+    <main
+      id="tickets-container"
+      class="tickets-container"
+      style="display: none"
+    >
+      <h1>OLD TRAFFORD TICKETS SYSTEM</h1>
+      <h3>Buy your tickets here</h3>
+
+      <form class="member-form">
+        <!--  IS MEMBER CONTAINER -->
+        <div id="is-member-container" class="is-member-container">
+          <label for="is-member"
+            >Are you a Manchester United Club Member?:</label
+          >
+          <select id="is-member-select" name="is-member">
+            <option value="0" disabled>Choose...</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <button id="is-member-button">NEXT</button>
+        </div>
+
+        <div
+          id="choose-tickets-container"
+          class="choose-tickets-container"
+          style="display: none"
+        >
+          <div class="ticket-description">
+            <ul>
+              <li>
+                <strong>VIP BOXES:</strong> Tickets from 1 to 3715 (£1000)
+              </li>
+              <li>
+                <strong>VIP SEATS:</strong> Tickets from 3716 to 14861 (£500)
+              </li>
+              <li>
+                <strong>GENERAL SEATS:</strong> Tickets from 14862 to 74310
+                (£90)
+              </li>
+            </ul>
+          </div>
+          <label for="choose-tickets">Select your tickets:</label>
+          <input type="number" id="choose-tickets-input" min="1" max="74310" />
+
+          <button id="add-ticket-button">ADD</button>
+          <button id="choose-tickets-button" style="display: none">NEXT</button>
+        </div>
+      </form>
+      <button id="logout-button" class="logout-button">LOGOUT</button>
+    </main>
+    <!-- SUMMARY CONTAINER -->
+    <div id="summary-container" class="summary-container" style="display: none">
+      <h2>SUMMARY</h2>
+      <h3 id="tickets-availables"></h3>
+      <ul id="tickets-list"></ul>
+      <p id="total-price"></p>
+      <button id="summary-button">PAY</button>
+    </div>
+  </body>
+</html>

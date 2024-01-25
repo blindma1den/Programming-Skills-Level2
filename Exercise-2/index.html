@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="./app.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="lottery-container" class="container">
+      <h1>LOTTERY TICKETS SYSTEM</h1>
+      <h3>Get Your Tickets</h3>
+      <form class="tickets-form">
+        <!-- TICKET 1 CONTAINER -->
+        <div id="getTicketOne-container" class="getTicketOne-container">
+          <label for="ticketOne">Select Your First Ticket:</label>
+          <select id="getTicketOne-select" name="ticketOne">
+            <option value="0" disabled>Choose your First Ticket</option>
+          </select>
+          <label for="anotherTicket">You want Another Ticket?</label>
+          <select id="anotherTicket-select" name="anotherTicket">
+            <option value="0" disabled>Choose...</option>
+            <option value="Yes">Yes</option>
+            <option value="No" selected>No</option>
+          </select>
+          <button id="getTicketOne-button">NEXT</button>
+        </div>
+        <!-- SECOND TICKET CONTAINER -->
+        <div
+          id="getTicketTwo-container"
+          class="getTicketTwo-container"
+          style="display: none"
+        >
+          <label for="ticketTwo">Select Your Second Ticket:</label>
+          <select id="getTicketTwo-select" name="ticketTwo">
+            <option value="0" disabled>Choose your Second Ticket</option>
+          </select>
+          <button id="getTicketTwo-button">NEXT</button>
+        </div>
+        <!-- PAYMENTS METHOD CONTAINER -->
+        <div
+          id="paymentMethod-container"
+          class="paymentMethod-container"
+          style="display: none"
+        >
+          <label for="paymentMethod">Select your Payment Method:</label>
+          <select id="paymentMethod-select" name="paymentMethod">
+            <option value="0" disabled>Choose your Payment Method</option>
+            <option value="Bank Card">Bank Card</option>
+            <option value="Cash">Cash</option>
+          </select>
+          <div id="bill-container" class="bill-container" style="display: none">
+            <label for="bill">With which bill would you like to pay?</label>
+            <select name="cashPayment" id="bill-select">
+              <option value="0" disabled>Choose your bill...</option>
+              <option value="1">1 USD</option>
+              <option value="5">5 USD</option>
+            </select>
+          </div>
+          <button id="paymentMethod-button">NEXT</button>
+        </div>
+      </form>
+    </main>
+    <!-- LOTTERY GAME CONTAINER -->
+    <div
+      id="lotteryGame-container"
+      class="lotteryGame-container"
+      style="display: none"
+    >
+      <h2>Lottery Game</h2>
+      <p id="yourTickets"></p>
+      <button id="lotteryGame-button">PLAY LOTTERY</button>
+    </div>
+    <!-- RESULTS CONTAINER-->
+    <div id="results-container" class="results-container" style="display: none">
+      <h2>RESULTS:</h2>
+      <p id="results"></p>
+      <p id="playerResults"></p>
+    </div>
+  </body>
+</html>
