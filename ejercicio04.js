@@ -108,7 +108,6 @@ function selectSeat() {
 			let nextSeat;
 			let backSeat;
 			let down = numberSeat;
-			// let up = seat + 1;
 			for (
 				numberSeat, down;
 				numberSeat <= STADIUM_CAPACITY && down > 0;
