@@ -10,6 +10,7 @@
   <body>
     <section id="form-container" class="form-container">
       <h1>WELCOME TO OLD TRAFFORD</h1>
+
       <form class="form">
         <h2>LOGIN FORM</h2>
         <input type="text" id="username" placeholder="Enter your username" />
@@ -28,6 +29,7 @@
     >
       <h1>OLD TRAFFORD TICKETS SYSTEM</h1>
       <h3>Buy your tickets here</h3>
+
       <form class="member-form">
         <!--  IS MEMBER CONTAINER -->
         <div id="is-member-container" class="is-member-container">
@@ -67,53 +69,16 @@
           <button id="add-ticket-button">ADD</button>
           <button id="choose-tickets-button" style="display: none">NEXT</button>
         </div>
-        <!-- CONDITION CONTAINER -->
-        <div
-          id="condition-container"
-          class="condition-container"
-          style="display: none"
-        >
-          <label for="condition">Select Travel Condition:</label>
-          <select id="condition-select" name="condition">
-            <option value="0" disabled>Choose your Travel Condition</option>
-            <option value="Economic">Economic</option>
-            <option value="First Class">First Class</option>
-          </select>
-          <button id="condition-button">NEXT</button>
-        </div>
-        <!-- LUGAGGE CONTAINER-->
-        <div
-          id="luggage-container"
-          class="luggage-container"
-          style="display: none"
-        >
-          <label for="luggage"
-            >Do you want an additional luggage in hold?</label
-          >
-          <select name="luggage" id="luggage-select">
-            <option value="0" disabled>Choose...</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-          <button id="luggage-button">NEXT</button>
-        </div>
-        <!-- MEAL CONTAINER -->
-        <div id="meal-container" class="meal-container" style="display: none">
-          <label for="meal">Select preferred Meal:</label>
-          <select id="meal-select" name="meal">
-            <option value="0" disabled>Choose your preferred Meal</option>
-            <option value="Regular">Regular</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Kosher">Kosher</option>
-          </select>
-          <button id="meal-button">NEXT</button>
-        </div>
-
-        <button id="submit-reservation-button" style="display: none">
-          SUBMIT RESERVATION
-        </button>
       </form>
       <button id="logout-button" class="logout-button">LOGOUT</button>
     </main>
+    <!-- SUMMARY CONTAINER -->
+    <div id="summary-container" class="summary-container" style="display: none">
+      <h2>SUMMARY</h2>
+      <h3 id="tickets-availables"></h3>
+      <ul id="tickets-list"></ul>
+      <p id="total-price"></p>
+      <button id="summary-button">PAY</button>
+    </div>
   </body>
 </html>

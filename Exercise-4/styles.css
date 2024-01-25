@@ -18,8 +18,8 @@ body {
   align-items: center;
 }
 
-.container {
-  max-width: 600px;
+.tickets-container {
+  max-width: 800px;
   margin: 50px auto;
   padding: 20px;
   background-color: #fff;
@@ -65,14 +65,10 @@ button:hover {
 
 .tickets-container,
 .is-member-container,
-.choose-tickets-container,
-.condition-container,
-.luggage-container,
-.meal-container,
-.user-data-container {
+.choose-tickets-container {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 90%;
   align-items: center;
   margin-bottom: 20px;
   gap: 10px;
@@ -103,4 +99,24 @@ li {
 .tickets-container li {
   padding: 10px;
   border: 1px solid black;
+}
+
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.summary-container h2 {
+  margin-bottom: 10px;
+}
+
+.summary-container p {
+  margin-bottom: 10px;
+}
+.summary-container ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
