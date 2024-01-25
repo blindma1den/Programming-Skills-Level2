@@ -1,7 +1,6 @@
 /*
 5. Manchester United FC Talent Acquisition System:
-The head coach aims to recruit
-two forwards, two midfielders, a right-back, a defender, and a goalkeeper. 
+The head coach aims to recruit two midfielders, a right-back, and a goalkeeper. 
 o achieve this, the club needs to sell some players to fund these new signings.
 Develop a system to assist the head coach in choosing which players can be sold based on
  their market price, salary, position, and performance within the club.
@@ -21,11 +20,18 @@ const marketPlayersContainer = document.getElementById(
 );
 const marketBudgetSpan = document.getElementById('market-budget');
 const salaryBudgetSpan = document.getElementById('salary-budget');
+const goalkeeperSpan = document.getElementById('goalkeeper');
+const rightSideSpan = document.getElementById('right-side');
+const midfielderSpan = document.getElementById('midfielder');
 //Variables de logica
 let currentSquad = [];
 let marketPlayers = [];
 let salaryBudget = 0;
 let marketBudget = 0;
+let isCurrentSquad = true;
+let goalkeeper = 0;
+let rightside = 0;
+let midfielder = 0;
 //Funcion de fetch
 const fetchJson = async (url) => {
   try {
@@ -46,7 +52,7 @@ fetchJson('./currentSquad.json')
       currentSquad = data;
       console.log(currentSquad);
       //Ejecutamos la funcion cuando el fetch devuelva los datos
-      displayPlayers(currentSquadContainer, currentSquad);
+      displayPlayers(currentSquadContainer, currentSquad, true);
     }
   })
   .catch((error) => console.log(error));
@@ -57,7 +63,7 @@ fetchJson('./marketPlayers.json')
     if (data) {
       marketPlayers = data;
       console.log(marketPlayers);
-      displayPlayers(marketPlayersContainer, marketPlayers);
+      displayPlayers(marketPlayersContainer, marketPlayers, false);
     }
   })
   .catch((error) => console.log(error));
@@ -65,9 +71,16 @@ fetchJson('./marketPlayers.json')
 const budgetsUpdateDOM = () => {
   marketBudgetSpan.textContent = `${marketBudget}`;
   salaryBudgetSpan.textContent = `${salaryBudget}`;
+  goalkeeperSpan.textContent = `${goalkeeper}`;
+  rightSideSpan.textContent = `${rightside}`;
+  midfielderSpan.textContent = `${midfielder}`;
+  if (midfielder === 2 && goalkeeper === 1 && rightside === 1) {
+    alert('Congratulations, goal achieved! ');
+  }
 };
+
 //FUNCION PRINCIPAL QUE MUESTRA A LOS JUGADORES Y OPCIONES
-const displayPlayers = (container, players) => {
+const displayPlayers = (container, players, isCurrentSquad) => {
   // Vaciamos el contenedor para no duplicar cuando actualicemos.
   container.innerHTML = '';
   budgetsUpdateDOM();
@@ -109,24 +122,34 @@ const displayPlayers = (container, players) => {
           <p>Performance: ${player.performance}</p>
           <button id="${player.name}-button"></button>
         `;
+      if (player.performance === 'Normal') {
+        card.classList.add('normal-performance');
+      }
       if (player.state) {
-        // card.querySelector('button').style.display = 'none';
         const state = document.createElement('p');
         state.innerHTML = `${player.state}`;
         state.classList.add('new-player');
         card.appendChild(state);
       }
-      if (players.length > 20) {
+      if (isCurrentSquad) {
         card.querySelector('button').textContent = 'SELL';
         card.querySelector('button').classList.add(`sell-button`);
 
         card.querySelector('button').addEventListener('click', () => {
-          sellPlayer(player.name);
-          console.log(` ${player.name} sold`);
-          marketBudget += player.price;
-          salaryBudget += player.salary;
+          // Comprobamos que no se venda el único jugador de esa posición
+          const countPositionPlayers = currentSquad.filter(
+            (p) => p.position === player.position
+          ).length;
+          if (countPositionPlayers === 1) {
+            alert(`You cannot sold all your ${player.position}`);
+          } else {
+            sellPlayer(player.name);
+            console.log(` ${player.name} sold`);
+            marketBudget += player.price;
+            salaryBudget += player.salary;
 
-          budgetsUpdateDOM();
+            budgetsUpdateDOM();
+          }
         });
       } else {
         card.querySelector('button').textContent = 'BUY';
@@ -142,8 +165,17 @@ const displayPlayers = (container, players) => {
             marketBudget -= player.price;
             salaryBudget -= player.salary;
             console.log(` ${player.name} bought`);
-            budgetsUpdateDOM();
+            if (player.state) {
+              if (player.position === 'Goalkeeper') {
+                goalkeeper++;
+              } else if (player.position === 'Midfielder') {
+                midfielder++;
+              } else if (player.position === 'Right Side') {
+                rightside++;
+              }
+            }
           }
+          budgetsUpdateDOM();
         });
       }
 
@@ -167,7 +199,8 @@ const sellPlayer = (player) => {
   const playerToDelete = findPlayerByName(currentSquad, player);
 
   currentSquad.splice(currentSquad.indexOf(playerToDelete), 1);
-  displayPlayers(currentSquadContainer, currentSquad);
+  displayPlayers(currentSquadContainer, currentSquad, true);
+  displayPlayers(marketPlayersContainer, marketPlayers, false);
 };
 
 //Funcion para comprar jugadores
@@ -176,6 +209,6 @@ const buyPlayer = (player) => {
   playerToBuy.state = 'NEW SIGN';
   currentSquad.push(playerToBuy);
   marketPlayers.splice(marketPlayers.indexOf(playerToBuy), 1);
-  displayPlayers(marketPlayersContainer, marketPlayers);
-  displayPlayers(currentSquadContainer, currentSquad);
+  displayPlayers(marketPlayersContainer, marketPlayers, false);
+  displayPlayers(currentSquadContainer, currentSquad, true);
 };
