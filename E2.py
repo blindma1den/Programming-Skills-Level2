@@ -28,10 +28,23 @@ def buy(tickets, holding):
             ticket = None
             while(ticket is None or tickets[ticket] in holding):
                 ticket = int(input("What ticket do you want? "))
-                
-                #falta cobrar
-                
-            holding.append(tickets[ticket])
+        holding.append(tickets[ticket])
+        payment = 0
+        while (payment != 1 and payment != 2):
+            payment = int(f"Do you want to pay with cash or card? (1) Cash (2) Card")
+        if payment == 1:
+            print("Insert bills into the machine")
+            money = 0
+            while money < buying:
+                one = int(input("How many $1 bills? "))
+                five = int(input("How many $5 bills? "))
+                money = one * 1 + five * 5
+                if money < buying:
+                    print("You don't have enough money")
+            print("your change is $" + str(money - buying))
+        else:
+            print("Wait a moment while the card is processed")
+            print("Card accepted")
     else:
         print("You already have two tickets")
     DrawMain(tickets, holding)
@@ -54,4 +67,8 @@ def E2():
     holding = []
     DrawMain(tickets, holding)
 
-E2()
+def main():
+    E2()
+
+if __name__ == "__main__":
+    main()
