@@ -138,11 +138,14 @@ int main(){
     int seat_number;
     int payment;
     int log_in_flag ;
+    //Main menu
     while(menu==1){
         printf("Welcome to the Ticket sale system of the Old Trafford Stadium\nPlease select an option:\n\n1-Create account\n2-Log in\n3-Exit\n");
+        //Menu option
         scanf("%i",&menu_option);
         index = 0;
         switch(menu_option){    
+            //Creating an Account
             case 1:
                 ptrusername = malloc(sizeof(char));
                 ptrpassword = malloc(sizeof(char));
@@ -152,6 +155,7 @@ int main(){
                 scanf("%s",ptrpassword);
                 printf("Do you have a memership?\n1-Yes\n2-No\n");
                 scanf("%i",&memership);
+                //Validating the membership
                 if(memership>0 && memership<3){
                     user_constructor(users,user_index, ptrusername, ptrpassword,memership);
                 user_index++;
@@ -162,7 +166,8 @@ int main(){
                 free(ptrusername);
                 ptrpassword = NULL;
                 ptrusername = NULL;
-                break;                
+                break;               
+            //Loging in  
             case 2:
                 log_in_flag = 0;
                 total = 0;
@@ -172,6 +177,7 @@ int main(){
                 scanf("%s",ptrusername);
                 printf("Now enter your password: ");
                 scanf("%s",ptrpassword);               
+                //Validating the credentials
                 for(int i = 0 ; i < user_index;i++){
                     if(0 == strcmp(users[i].username,ptrusername) && (0 == strcmp(users[i].password, ptrpassword))){
                         log_in_flag = 1;
@@ -182,16 +188,21 @@ int main(){
                 if(log_in_flag == 1){
                     printf("Do you have a memembership?\n1-Yes\n2-No\n");
                     scanf("%i",&memership);
+                    //Validating the membership
                     if(memership>0 && memership < 3 && memership == users[index].flag_membership){
-                        menu2=1;                        
+                        menu2=1;                    
+                        //Menu for buying a ticket    
                         while(menu2==1){
+                            //Validating the maximun amount of tickets per type of user
                             if((users[index].flag_membership==1 && users[index].ticket_amount <10)||(users[index].flag_membership==2 && users[index].ticket_amount<3)){
+                                //Asking the type of seat
                                 printf("Select the type of seat that you wish to buy:\n1-VIP box £1000\n2-VIP £500 seat\n3-General seats £90\n");
                                 scanf("%i",&seat_option);
                                 switch (seat_option){
                                     //vip boxes
                                     case 1:
                                         printf("There are %i seats availables (%i - %i).\nPlease choose a seat\n",vip_boxes, vip_boxes_min+1, vip_boxes_max+1);
+                                        //Asking the seat number
                                         scanf("%i",&seat_number);
                                         if(seat_number> vip_boxes_min && seat_number< vip_boxes_max){
                                             available_seat_option = available_seats(seats,seat_number, vip_boxes_min,vip_boxes_max);
@@ -238,6 +249,7 @@ int main(){
                                     //vip seats
                                     case 2:
                                         printf("There are %i seats availables(%i - %i).\nPlease choose a seat\n",vip_seats, vip_seats_min +1, vip_seats_max+1);                                        
+                                        //Asking the seat number
                                         scanf("%i",&seat_number);
                                         if(seat_number> vip_seats_min && seat_number< vip_seats_max){
                                             available_seat_option = available_seats(seats,seat_number, vip_boxes_min,vip_boxes_max);
@@ -284,6 +296,7 @@ int main(){
                                     //General seats
                                     case 3:
                                         printf("There are %i seats availables(%i - %i).\nPlease choose a seat\n",general_seats, general_seats_min +1, general_seats_max+1);                                        
+                                        //Asking the seat number
                                         scanf("%i",&seat_number);
                                         if(seat_number> general_seats_min && seat_number< general_seats_max){
                                             available_seat_option = available_seats(seats,seat_number, vip_boxes_min,vip_boxes_max);
