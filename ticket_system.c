@@ -32,6 +32,7 @@ The system should display the number of available seats after each purchase.*/
 #include <stdlib.h>
 #include <string.h>
 
+//user data type
 typedef struct user{
     char username[20];
     char password[20];
@@ -42,6 +43,7 @@ typedef struct user{
 
 }user;
 
+//Constructor procedure to "user" data type
 void user_constructor(user * users, int  user_index, char * username, char * password, int membership){
     strcpy(users[user_index].password ,password);
     strcpy(users[user_index].username ,username);    
@@ -51,6 +53,7 @@ void user_constructor(user * users, int  user_index, char * username, char * pas
         users[user_index].ticket_number[i] = -1;
     }
 }
+//function to check if a seat is available ,if not return the nearest one
 int available_seats(int * seats, int n, int min_num, int max_num){
     int option;
     int i = 1;
@@ -61,6 +64,7 @@ int available_seats(int * seats, int n, int min_num, int max_num){
         printf("that seat is occupied, do you want the nearest one ?\n1-Yes\n2-No\n");
         scanf("%i",&option);
         switch(option){
+            //Nearest seat
             case 1:
                 while(distance_right < max_num && seats[distance_right] == 0){
                     distance_right++;
@@ -92,12 +96,13 @@ int available_seats(int * seats, int n, int min_num, int max_num){
                 break;
         }
     }else{
+        //The original seat is available
         printf("Seat available");    
         nearest_seat = -1;
     }
     return nearest_seat;
 }
-
+//Procedure to display the ticekts of the user
 void display_tickets(user * users, int index){
     printf("Ticktes the user bought:");
     for(int i = 0; i < users[index].ticket_amount; i++){
