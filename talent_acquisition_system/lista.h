@@ -18,6 +18,10 @@ void eliminar_l(lista**l);
 
 int player_price(lista ** position, char * last_name);
 
-void recommendation(lista ** team , lista ** market);
+void recommendation_buy(lista ** team , lista ** market);
+
+void recommendation_sell(lista ** team , lista ** market);
+
+void buy_player(lista ** team, lista ** market, char * last_name);
 
 #endif
