@@ -452,5 +452,25 @@ int main(){
                 break;
         }
     }
+    eliminar_l(team_goalkeepers);
+    eliminar_l(team_defenders);
+    eliminar_l(team_left_side);
+    eliminar_l(team_midfielders);
+    eliminar_l(team_right_side);
+    eliminar_l(team_strikers);
+    eliminar_l(market_goalkeeper);
+    eliminar_l(market_midfielders);
+    eliminar_l(market_right_side);
+    eliminar_l(market_strikers);
+    free(team_goalkeepers), 
+    free(team_defenders );
+    free(team_right_side );
+    free(team_left_side );
+    free(team_midfielders );
+    free(team_strikers);
+    free(market_goalkeeper);
+    free(market_right_side );
+    free(market_midfielders );
+    free(market_strikers );
     return 0;
 }
