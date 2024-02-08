@@ -68,7 +68,124 @@ RightMarket.append(("Ronald Araujo", 15000000, 10000000, "Good"))
 StrikeMarket.append(("Victor oshimed", 30000000, 12000000, "Good"))
 StrikeMarket.append(("Harry Kane", 40000000, 15000000, "Good"))
 StrikeMarket.append(("Karim Benzeme", 20000000, 20000000, "Normal"))
+//VENDER JUGADOR
+var totalventa: Double = 0
+var valorventa: [(String, Double, String)] = []
 
+func venderGoleador(){
+    var allyaux: [(String,Double, String)] = []
+    var aux: Double = 0
+    for (a,b,c,d) in Goalkeepers{
+        if (d == "Normal"){
+            aux = b+c
+            allyaux.append((a,aux,d))
+
+            allyaux.sort {$0.1 < $1.1}
+            
+        }
+    }
+
+
+    for (a,b,c) in allyaux{
+        valorventa.append((a,b,c))
+    }
+
+    
+}
+
+func venderRightsiders(){
+    var allyaux: [(String,Double, String)] = []
+    var aux: Double = 0
+    for (a,b,c,d) in Rightsiders{
+        if (d == "Normal"){
+            aux = b+c
+            allyaux.append((a,aux,d))
+
+            allyaux.sort {$0.1 < $1.1}
+            
+        }
+    }
+
+
+for (a,b,c) in allyaux{
+        valorventa.append((a,b,c))
+    }
+}
+
+func venderStrikers(){
+    var allyaux: [(String,Double, String)] = []
+    var aux: Double = 0
+    for (a,b,c,d) in Strikers{
+        if (d == "Normal"){
+            aux = b+c
+            allyaux.append((a,aux,d))
+
+            allyaux.sort {$0.1 < $1.1}
+            
+        }
+    }
+
+
+for (a,b,c) in allyaux{
+        valorventa.append((a,b,c))
+    }
+}
+
+func venderMid(){
+    var allyaux: [(String,Double, String)] = []
+    var aux: Double = 0
+    for (a,b,c,d) in Midfielders{
+        if (d == "Normal"){
+            aux = b+c
+            allyaux.append((a,aux,d))
+
+            allyaux.sort {$0.1 < $1.1}
+            
+        }
+    }
+
+
+for (a,b,c) in allyaux{
+        valorventa.append((a,b,c))
+    }
+}
+func venderLeftsiders(){
+    var allyaux: [(String,Double, String)] = []
+    var aux: Double = 0
+    for (a,b,c,d) in Leftsiders{
+        if (d == "Normal"){
+            aux = b+c
+            allyaux.append((a,aux,d))
+
+            allyaux.sort {$0.1 < $1.1}
+            
+        }
+    }
+
+
+for (a,b,c) in allyaux{
+        valorventa.append((a,b,c))
+    }
+}
+
+func venderDefender(){
+    var allyaux: [(String,Double, String)] = []
+    var aux: Double = 0
+    for (a,b,c,d) in Defenders{
+        if (d == "Normal"){
+            aux = b+c
+            allyaux.append((a,aux,d))
+
+            allyaux.sort {$0.1 < $1.1}
+            
+        }
+    }
+
+
+for (a,b,c) in allyaux{
+        valorventa.append((a,b,c))
+    }
+}
 
 //Comprar jugadores 
 //Goleados 2
@@ -76,34 +193,197 @@ StrikeMarket.append(("Karim Benzeme", 20000000, 20000000, "Normal"))
 func elegirGoleadores(){
     var aux: Double = 0
     var aux2: Int = 0
+    var allyaux: [(String, Double, String)] = []
     for (nombre, precio, sueldo, atributo) in GoalMarket{
+       
+    
 
         
             aux = sueldo + precio
-            valorMarket.append((nombre, aux, atributo))
-            valorMarket.sort { $0.1 < $1.1 }
+            allyaux.append((nombre,aux,atributo))
+            
+            allyaux.sort { $0.1 < $1.1 }
         
         
     }
 
-    aux2 = valorMarket.count
+
+    aux2 = allyaux.count
     print(aux2)
 
     // Eliminar el primer elemento
     if aux2 > 0 {
-        valorMarket.remove(at: 0)
+        allyaux.remove(at: 0)
     }
 
     // Eliminar el último elemento
     if aux2 > 1 {
-        valorMarket.remove(at: aux2 - 2)
+        allyaux.remove(at: aux2 - 2)
+        allyaux.remove(at: 1)
 }
+
+    for (nombre, precio, atributo) in allyaux{
+        valorMarket.append((nombre, precio, atributo))
+    }
+   
+}
+
+//2 midfielders
+
+func elegirMid(){
+    var aux: Double = 0
+    var aux2: Int = 0
+    var allyaux: [(String, Double, String)] = []
+    for (nombre, precio, sueldo, atributo) in MidMarket{
+       
+    
+
+        
+            aux = sueldo + precio
+            allyaux.append((nombre,aux,atributo))
+            
+            allyaux.sort { $0.1 < $1.1 }
+        
+        
+    }
+
+
+    aux2 = allyaux.count
+    print(aux2)
+
+    // Eliminar el primer elemento
+    if aux2 > 0 {
+        allyaux.remove(at: 0)
+    }
+
+
+
+    for (nombre, precio, atributo) in allyaux{
+        valorMarket.append((nombre, precio, atributo))
+    }
+   
+}
+
+func elegirRight(){
+    var aux: Double = 0
+    var aux2: Int = 0
+    var allyaux: [(String, Double, String)] = []
+    for (nombre, precio, sueldo, atributo) in RightMarket{
+       
+    
+
+        
+            aux = sueldo + precio
+            allyaux.append((nombre,aux,atributo))
+            
+            allyaux.sort { $0.1 < $1.1 }
+        
+        
+    }
+
+
+    aux2 = allyaux.count
+    print(aux2)
+
+    // Eliminar el primer elemento
+    if aux2 > 0 {
+        allyaux.remove(at: 0)
+    }
+
+    // Eliminar el último elemento
+    if aux2 > 1 {
+        allyaux.remove(at: aux2 - 2)
+}
+
+    for (nombre, precio, atributo) in allyaux{
+        valorMarket.append((nombre, precio, atributo))
+    }
+   
+}
+
+//2 strikers
+func elegirstrikers(){
+    var aux: Double = 0
+    var aux2: Int = 0
+    var allyaux: [(String, Double, String)] = []
+    for (nombre, precio, sueldo, atributo) in StrikeMarket{
+       
+    
+
+        
+            aux = sueldo + precio
+            allyaux.append((nombre,aux,atributo))
+            
+            allyaux.sort { $0.1 < $1.1 }
+        
+        
+    }
+
+
+    aux2 = allyaux.count
+    print(aux2)
+
+    // Eliminar el primer elemento
+    if aux2 > 0 {
+        allyaux.remove(at: 0)
+    }
+
+
+
+    for (nombre, precio, atributo) in allyaux{
+        valorMarket.append((nombre, precio, atributo))
+    }
+   
 }
 
 
 elegirGoleadores()
-print(valorMarket)
+elegirMid()
+elegirRight()
+elegirstrikers()
+var totalcompra: Double = 0
+func JuntaMontOMarket(){
+    
+    for (_,a,_) in valorMarket{
+        totalcompra = totalcompra + a
+    }
+    print("El monto necesario para comprar los jugadores necesario es: \(totalcompra)")
+}
 
+func Juntamontovent(){
+    for(_,a,_) in valorventa{
+        totalventa = totalventa + a
+    }
+    print("Se estaria vendiendo: \(totalventa)")
+}
+
+
+
+JuntaMontOMarket()
+venderGoleador()
+venderDefender()
+venderLeftsiders()
+venderMid()
+venderRightsiders()
+venderStrikers()
+Juntamontovent()
+
+
+if(totalventa > totalcompra){
+    print("Se estarian vendiendo los jugadores: ")
+    for (a,_,_) in valorventa{
+        print(a)
+        
+    }
+
+    print("Se comprarian los siguientes jugadores: ")
+    for(a,_,_) in valorMarket{
+        print(a)
+    }
+
+    let sobra =  totalventa - totalcompra
+    print("Sobraria \(sobra)")
+}
 
 
 /*for (nombre, numero, numero1, holl) in Defenders{
